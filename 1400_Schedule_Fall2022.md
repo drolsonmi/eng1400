@@ -12,8 +12,8 @@
 | Sep 19	    | Programming Style & Input         | 2.15 - 3.2	    | H.W. #9   | 
 | Sep 21	    | Overflow and Type Casting         | 3.3 - 3.5	        |           | 
 | Sep 23	    | Assignments & Formatting Output   | 3.6 - 3.7      	| H.W. #10  | 
-| Sep 26	    |       	                        |       	        | H.W. #11  | 
-| Sep 28	    | Libraries and Debugging	        | 3.8 - 3.10	    | H.W. #12  | 
+| Sep 26	    | Strings and Libraries             | 3.8 - 3.9	        | H.W. #11  | 
+| Sep 28	    | Debugging             	        | 3.10      	    | H.W. #12  | 
 | Sep 30	    | Exam 1 Review		                |                   |           | 
 | Oct 3	        | If Statements	                    | 4.1 - 4.3	        | H.W. #13  | 
 | Oct 4-5	    | Exam 1 (in Testing Center)        | 		            |           | 
