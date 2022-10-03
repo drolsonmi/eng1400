@@ -15,27 +15,28 @@ int main()
 
     // format input section so lines are all lined up
     cout << "Give me a plural noun: ";
-    cin << noun1;
-    cout << "Give me a place: ";
-    cin << place1;
-    cout << "Give me a noun: ";
-    cin << noun2;
+    cin >> noun1;
+    cout << "Give me a place:       ";
+    cin >> place1;
+    cout << "Give me a noun:        ";
+    cin >> noun2;
     cout << "Give me a plural noun: ";
-    cin << noun3;
-    cout << "Give me a noun: ";
-    cin << noun4;
-    cout << "Give me an adjective: ";
-    cin << adj1;
-    cout << "Give me a verb: ";
-    cin << verb1;
-    cout << "Give me a number: ";
-    cin << num1;
-    cout << "Give me an adjective: ";
-    cin << adj2;
-    cout << "Give me a body part: ";
-    cin << body1;
-    cout << "Give me a verb: ";
-    cin << verb2;
+    cin >> noun3;
+    cout << "Give me a noun:        ";
+    cin >> noun4;
+    cout << "Give me an adjective:  ";
+    cin >> adj1;
+    cout << "Give me a verb:        ";
+    cin >> verb1;
+    cout << "Give me a number:      ";
+    cin >> num1;
+    cout << "Give me an adjective:  ";
+    cin >> adj2;
+    cout << "Give me a body part:   ";
+    cin >> body1;
+    cout << "Give me a verb:        ";
+    cin >> verb2;
+    cout << endl;
     
     // Here's the story:
     cout << "Two "<< noun1 << ", both alike in dignity,\n";
@@ -51,6 +52,5 @@ int main()
     cout << "Which, but their children`s end, nought could " << verb1 << ",\n";
     cout << "Is now the " << num1 << " hours` traffic of our stage;\n";
     cout << "The which if you with " << adj2 << " " << body1 << " Endoskeleton attend,\n";
-    cout << "What here shall " << verb2 << ", our toil shall strive to mend.\n";
-    
+    cout << "What here shall " << verb2 << ", our toil shall strive to mend.\n\n"; 
 }
