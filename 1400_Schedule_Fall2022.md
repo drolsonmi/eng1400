@@ -18,7 +18,7 @@
 | Oct 3	        | If Statements	                    | 4.1 - 4.3	        | H.W. #13  | 
 | Oct 4-5	    | Exam 1 (in Testing Center)        | 		            |           | 
 | Oct 5	        | If-Else Statements	            | 4.4 - 4.6	        | H.W. #14  | 
-| Oct 7	        | Logical Operators and Menus	    | 4.7 - 4.11	    | H.W. #15  | 
+| Oct 7	        | Logical Operators         	    | 4.7 - 4.11	    | H.W. #15  | 
 | Oct 10	    | Conditional Operators	            | 4.12 - 4.15	    | H.W. #16  | 
 | Oct 12	    | The While Loop	                | 5.1 - 5.4	        | H.W. #17  | 
 | Oct 14	    | The For Loop	                    | 5.5 - 5.7	        | H.W. #18  | 
