@@ -1,0 +1,193 @@
+<!doctype html public "-//w3c//dtd html 4.0 transitional//en">
+<html>
+
+	<head>
+		<meta http-equiv="content-type" content="text/html;charset=iso-8859-1">
+		<meta name="generator" content="Adobe GoLive 4">
+		<title>CS 1400 - Lecture Notes</title>
+		<meta name="Author" content="Garth O. Sorenson">
+		<script type='text/javascript' src='http://www.snow.edu/garths/inc/header.js'></script>
+		<script type='text/javascript'>write_header()</script>
+	</head>
+
+	<body bgcolor="white">
+		<h4><csltb width="493" height="37" align="left" xpos="574" content valign="top" csheight="35">
+				<font size="5" face="Times New Roman,Georgia,Times" color="#003366"><nobr><i>CS 1400 - Lecture Notes</i></nobr></font>
+			</csltb></h4>
+		<table border="0" cellpadding="10" cellspacing="2" width="592">
+			<tr>
+				<td>
+					<h2>Internal Representation</h2>
+					<p>I.&nbsp;&nbsp; Computers store all information as a sequence of bits.</p>
+					<blockquote>
+						<p>A.&nbsp;&nbsp;&nbsp; A computer is a digital electronic machine.<br>
+						B.&nbsp;&nbsp;&nbsp; A computer uses two voltage levels to represent information.&nbsp; A high voltage and a low voltage.<br>
+						C.&nbsp;&nbsp;&nbsp; A bit is a <u>b</u>inary dig<u>it</u>.&nbsp; This means it can have one of two values, 1 (high voltage) or 0 (low voltage).<br>
+						D.&nbsp;&nbsp;&nbsp; Bits are organized into bytes.&nbsp; 8 bits = 1 byte.<br>
+						E.&nbsp;&nbsp;&nbsp; Bytes are organized into words:&nbsp; on a 32-bit machine a word is 32 bits or 4 bytes;&nbsp; on a 16-bit machine a word is 16 bits or 2 bytes.</p>
+					</blockquote>
+					<p>II.&nbsp;&nbsp;&nbsp; Integer Representation</p>
+					<blockquote>
+						<p>A.&nbsp;&nbsp;&nbsp; Binary Number System</p>
+						<blockquote>
+							<p>i.&nbsp;&nbsp;&nbsp; Humans write integers in decimal (base-10).&nbsp; Each digit has 10 possible values:&nbsp; 0 - 9</p>
+							<blockquote>
+								<p>7036<sub>10</sub> = 7 x 10<sup>3</sup> + 0 x 10<sup>2</sup> + 3 x 10<sup>1</sup> + 6 x 10<sup>0</sup></p>
+							</blockquote>
+							<p>ii.&nbsp;&nbsp;&nbsp; Computers represent integers in binary (base-2).&nbsp; Each digit has 2 possible values: 0 or 1</p>
+							<blockquote>
+								<p>100110<sub>2</sub> = 1 x 2<sup>5</sup> + 0 x 2<sup>4</sup> + 0 x 2<sup>3</sup> + 1 x 2<sup>2</sup> + 1 x 2<sup>1</sup> + 0 x 2<sup>0</sup><br>
+								&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; = 32<sub>10</sub> + 4<sub>10</sub> + 2<sub>10</sub><br>
+								&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; = 38<sub>10</sub></p>
+							</blockquote>
+							<p>iii.&nbsp;&nbsp;&nbsp; Storing 38<sub>10</sub> in binary (base-2) requires 6 bits (binary digits).<br>
+							iv.&nbsp;&nbsp;&nbsp; Storing this value in one byte would be 00100110.<br>
+							v.&nbsp;&nbsp;&nbsp; Storing the same value in two bytes would be 0000000000100110.<br>
+							vi.&nbsp;&nbsp;&nbsp; Storing large integers in binary requires a lot of bits.<br>
+							vii.&nbsp;&nbsp;&nbsp; The largest one-byte binary integer would be</p>
+							<blockquote>
+								<p>11111111<sub>2</sub> = 255<sub>10</sub></p>
+							</blockquote>
+							<p>viii.&nbsp;&nbsp;&nbsp; The largest two-byte binary integer would be</p>
+							<blockquote>
+								<p>1111111111111111<sub>2</sub> = 65535<sub>10</sub></p>
+							</blockquote>
+							<p>ix.&nbsp;&nbsp;&nbsp; The smallest two-byte binary intger would be</p>
+							<blockquote>
+								<p>0000000000000000<sub>2</sub> = 0<sub>10</sub></p>
+							</blockquote>
+						</blockquote>
+						<p>B.&nbsp;&nbsp;&nbsp; Two's Complement Number System</p>
+						<blockquote>
+							<p>i.&nbsp;&nbsp;&nbsp; In the binary number system, a negative number requires the use of a negative sign</p>
+							<blockquote>
+								<p>-100110<sub>2</sub> = -38<sub>10</sub></p>
+							</blockquote>
+							<p>ii.&nbsp;&nbsp;&nbsp; To distinguish positive and negative numbers, a computer uses the two's complement number system for negative numbers.<br>
+							iii.&nbsp;&nbsp;&nbsp; In this system, if the left most bit is a 0, the integer value is positive and represented in binary (base-2).<br>
+							iv.&nbsp;&nbsp;&nbsp; If the left most bit is a 1, the number is negative and the absolute value of the negative number is not in binary, but is the two's complement of the original<br>
+							v.&nbsp;&nbsp;&nbsp; To find the two's complement</p>
+							<blockquote>
+								<p>1.&nbsp;&nbsp;&nbsp; Change each 1 to 0, and each 0 to 1.<br>
+								2.&nbsp;&nbsp;&nbsp; Add one to the number and discard any carry bit.</p>
+							</blockquote>
+							<p>vi.&nbsp;&nbsp;&nbsp; Examples</p>
+							<blockquote>
+								<p>a.&nbsp;&nbsp;&nbsp; Given 10101100, what integer value is represented?</p>
+								<blockquote>
+									<p>It is a negative integer since the left most bit is a 1, therefore find its two's complement</p>
+									<blockquote>
+										<p>1.&nbsp;&nbsp;&nbsp; 01010011&nbsp;&nbsp;&nbsp; (flip bits)<br>
+										2.&nbsp;&nbsp;&nbsp; +&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 1&nbsp;&nbsp;&nbsp; (add one)<br>
+										&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; -----------<br>
+										&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 01010100 = 64<sub>10</sub> + 16<sub>10</sub> + 4<sub>10</sub> = 84<sub>10</sub></p>
+									</blockquote>
+									<p>The integer value represented by 10101100 is therefore -84<sub>10</sub>.</p>
+								</blockquote>
+								<p>b.&nbsp;&nbsp;&nbsp; Given 00101100, what integer value is represented?</p>
+								<blockquote>
+									<p>It is a positive integer since the left most bit is a 0, therefore simple determine it binary value</p>
+									<blockquote>
+										<p>00101100 = 32<sub>10</sub> + 8<sub>10</sub> + 4<sub>10</sub> = 44<sub>10</sub></p>
+									</blockquote>
+								</blockquote>
+								<p>c.&nbsp;&nbsp;&nbsp; How do you represent -94<sub>10</sub>?</p>
+								<blockquote>
+									<p>94<sub>10</sub> = 64<sub>10</sub> + 16<sub>10</sub> + 8<sub>10</sub> + 4<sub>10</sub> + 2<sub>10</sub><br>
+									&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; = 2<sup>6</sup> + 2<sup>4</sup> + 2<sup>3</sup> + 2<sup>2</sup> + 2<sup>1</sup><br>
+									&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; = 01011110<sub>2</sub></p>
+									<p>Since we want to represent a -94<sub>10</sub>, we find two's complement of 94<sub>10</sub>.</p>
+									<blockquote>
+										<p>1.&nbsp;&nbsp;&nbsp; 10100001&nbsp;&nbsp;&nbsp; (flip bits)<br>
+										2.&nbsp;&nbsp;&nbsp; +&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 1&nbsp;&nbsp;&nbsp; (add one)<br>
+										&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; -----------<br>
+										&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 10100010</p>
+									</blockquote>
+									<p>The integer value -94<sub>10</sub> is represented as 10100010.</p>
+								</blockquote>
+							</blockquote>
+						</blockquote>
+					</blockquote>
+					<p>III.&nbsp;&nbsp;&nbsp; Floating-Point Representation</p>
+					<blockquote>
+						<p>A.&nbsp;&nbsp;&nbsp; Floating-point numbers are numbers containing fractional information.&nbsp; Humans write floating-point numbers in decimal (base-10).</p>
+						<blockquote>
+							<p>6.34<sub>10</sub> = 6 <sup>34</sup>/100<sub>10</sub> = 6 x 10<sup>0</sup> + 3 x 10<sup>-1</sup> + 4 x 10<sup>-2</sup></p>
+						</blockquote>
+						<p>B.&nbsp;&nbsp;&nbsp; Computers represent floating-point numbers in binary (base-2).</p>
+						<blockquote>
+							<p>101.011<sub>2</sub> = 1 x 2<sup>2</sup> + 1 x 2<sup>0</sup> + 1 x 2<sup>-2</sup> + 1 x 2<sup>-3</sup><br>
+							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; = 4<sub>10</sub> + 1<sub>10</sub> + 1/4<sub>10</sub> + 1/8<sub>10</sub><br>
+							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; = 5 <sup>3</sup>/8<sub>10</sub></p>
+						</blockquote>
+						<p>C.&nbsp;&nbsp;&nbsp; Floating-point numbers can be expressed in two forms, fixed notation or scientific notation.&nbsp; Computers express floating-point numbers in scientific notation which consists of a mantissa, base, and exponent.&nbsp; For example, in the floating-point number</p>
+						<blockquote>
+							<p>6.02 x 10<sup>23</sup></p>
+						</blockquote>
+						<p>6.02 is the mantissa, 10 is the base, and 23 is the exponent.</p>
+						<p>D.&nbsp;&nbsp;&nbsp; Computers store the scientific notation of the number in three pieces: a sign bit, an exponent, and a mantissa.&nbsp; In 16-bits for example, a floating point number could be stored as a sign bit, 5 exponent bits, and 10 mantissa bits.&nbsp; The base is not stored because it is given to be 2.</p>
+						<blockquote>
+							<p><tt><u>s</u> <u>e</u> <u>e</u> <u>e</u> <u>e</u> <u>e</u> <u>m</u> <u>m</u> <u>m</u> <u>m</u> <u>m</u> <u>m</u> <u>m</u> <u>m</u> <u>m</u> <u>m</u></tt></p>
+						</blockquote>
+						<p>A sign bit of 0 is means positive, and 1 means negative.&nbsp; The exponent is simply an integer (positive or negative), and the mantissa is stored in the remainder where left most mantissa bit may not be 0.</p>
+						<p>E.&nbsp;&nbsp;&nbsp; To store a floating-point number, the fixed notation of form of the base-10 representation is converted to base-2.&nbsp; The base-2 fixed notation is then changed to scientific notation.&nbsp; The scientific notation is adjusted so the binary point (similar to the decimal point in base-10) is left of the most significant digit in the mantissa.&nbsp; The resulting base-2 exponent and mantissa are then stored by the computer.</p>
+						<p>F.&nbsp;&nbsp;&nbsp; How do you store 13.125<sub>10</sub>?</p>
+						<blockquote>
+							<p>1.&nbsp;&nbsp;&nbsp; Convert fixed notation base-10 to base-2</p>
+							<blockquote>
+								<p>13.625<sub>10</sub> = 8<sub>10</sub> + 4<sub>10</sub> + 1<sub>10</sub> + <sup>1</sup>/2<sub>10</sub> + <sup>1</sup>/8<sub>10</sub><br>
+								&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; = 2<sup>3</sup> + 2<sup>2</sup> + 2<sup>0</sup> + 2<sup>-1</sup> + 2<sup>-3</sup><br>
+								&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; = 1101.101<sub>2</sub></p>
+							</blockquote>
+							<p>2.&nbsp;&nbsp;&nbsp; Change base-2 fixed notation to scientific notation</p>
+							<blockquote>
+								<p>1101.101<sub>2</sub> = 1101.101 x 2<sup>0</sup></p>
+							</blockquote>
+							<p>3.&nbsp;&nbsp;&nbsp; Move binary point to the left</p>
+							<blockquote>
+								<p>1101.101 x 2<sup>0</sup> = .1101101 x 2<sup>4</sup></p>
+							</blockquote>
+							<p>4.&nbsp;&nbsp;&nbsp; Store sign bit, exponent, and mantissa</p>
+							<blockquote>
+								<p>0 00100 1101101000</p>
+							</blockquote>
+						</blockquote>
+						<p>G.&nbsp;&nbsp;&nbsp; Many floating point numbers cannot be represented exactly since there are a finite number of bits used to store the mantissa.&nbsp; For example the following base-2 floating point number could not be store exactly in our 16-bit format:</p>
+						<blockquote>
+							<p>10100110.10011110101010100100111110101</p>
+						</blockquote>
+						<p>It would be truncated to</p>
+						<blockquote>
+							<p>10100110.10</p>
+						</blockquote>
+						<p>and stored as</p>
+						<blockquote>
+							<p>.1010011010 x 2<sup>8</sup></blockquote>
+					</blockquote>
+				</td>
+			</tr>
+		</table>
+		<table border="0" cellpadding="0" cellspacing="0" width="592">
+			<tr>
+				<td>
+					<hr noshade size="1" width="480">
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<center>
+						<font size="1" face="Arial,Helvetica,Geneva,Swiss,SunSans-Regular"><b>150 East College Avenue * Ephraim, Utah 84627 * Email: <a href="mailto:garth.sorenson@snow.edu">Garth.Sorenson@snow.edu</a></b></font></center>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<center>
+						<font size="1" face="Arial,Helvetica,Geneva,Swiss,SunSans-Regular">&copy; 2000 Snow College * All Rights Reserved</font></center>
+				</td>
+			</tr>
+		</table>
+		<script type='text/javascript' src='http://www.snow.edu/inc/footer.js'></script>
+		<script type='text/javascript'>write_footer()</script>
+	</body>
+
+</html>
